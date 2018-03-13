@@ -34,7 +34,8 @@ $(function () {
   } //= End Calculator Class
 
   // instantiate new calculator object
-  const c = new Calculator();
+  const c = new Calculator(),
+     sign = $('.sign');
 
   // number pad clicked
   $('.numerical').on('click', function () {
@@ -82,4 +83,30 @@ $(function () {
     c.displayOutput(sum, sum);
 
   })//= End Equal Button
+
+  // handle negative numbers
+  sign.on('click', () => {
+
+    // make sure we have a number
+    if (c._chain.length === 0) return;
+
+    let current = c.current;
+    // get last items of chain depending on current length
+    let chain = c.sign(current.length);
+
+    c._current = [];
+
+    if (sign.hasClass('negative')) {
+      sign.removeClass('negative');
+      // remove negative sign
+      c.chain = chain.substr(1);
+      c.current = current.substr(1);
+    } else {
+      sign.addClass('negative');
+      // add negative sign
+      c.chain = '-' + chain;
+      c.current = '-' + current;
+    }
+    c.displayOutput(c.current, c.chain);
+  })//= End Negative numbers
 })
