@@ -94,24 +94,97 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+   Julian Leahy
    ========================================================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   html {
+    height: 100%;
+    background: url(../images/bg.jpg) no-repeat;
+    background-size: cover;
+    font-family: Georgia, serif;
+  }
+  
+  .calculator {
+    width: 280px;
+    margin: 100px auto;
+    border: 3px solid DarkSlateGrey;
+    background-color: DarkCyan;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  }
+  .calculator .logo {
+    position: relative;
+    font-size: .8em;
+    top: 5px;
+    left: 15px;
+    color: #666;
+    text-shadow: 0px 1px 1px #fcfcfc;
+  }
+  
+  .display {
+    position: relative;
+    font-family: "Orbitron", sans-serif;
+    height: 50px;
+    background: url(../images/display.jpg) repeat-x;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 90%;
+    margin: 40px 16px 15px;
+    overflow: hidden;
+  }
+  .display .output {
+    position: absolute;
+    font-size: 1.5em;
+    top: -18px;
+    right: 14px;
+  }
+  .display .chain {
+    position: absolute;
+    font-size: .8em;
+    letter-spacing: 1px;
+    top: 22px;
+    right: 14px;
+  }
+  
+  .btn-wrap {
+    width: 275px;
+    margin: 0 0 15px 25px;
+  }
+  
+  button {
+    float: left;
+    color: #ffffff;
+    border-top: 1px solid #96d1f8;
+    background: #f59138;
+    /* For browsers that do not support gradients */
+    background: #f59138;
+    border-radius: 8px;
+    box-shadow: black 0 1px 0;
+    text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+    font-size: 16px;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    margin: 5px;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+  button:active {
+    outline: none;
+  }
+  
+  button.numerical {
+    background: #65a9d7;
+    /* For browsers that do not support gradients */
+    background: linear-gradient(top, #3e779d, #65a9d7);
+  }
+  
+  .wide-btn {
+    width: 110px;
+  }
+  
 
 /* ==========================================================================
    Helper classes
@@ -123,6 +196,14 @@ textarea {
 
 .hidden {
     display: none !important;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
 }
 
 /*
