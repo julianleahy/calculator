@@ -117,4 +117,26 @@ $(function () {
     c._current = [];
     c.displayOutput();
   })//= End Clear all
+
+  // clear last button pressed
+  $('.clear').on('click', () => {
+    sign.removeClass('negative');
+    const len = c._current.length;
+
+    if (len === 0) return;
+    // remove last element in chain - if operand just pop off 
+    // array otherwise remove items matching current element
+    if (isNaN(c.lastValueEntered())) {
+      c._chain.pop();
+    } else {
+      c._chain.splice(-(len));
+    }
+    c._current = [];
+    if (c.chain.length === 0) {
+      c.displayOutput();
+    } else {
+      c.current = 0;
+      c.displayOutput(c.current, c.chain);
+    }
+  })//=End Clear last
 })
