@@ -56,5 +56,16 @@ $(function () {
 
     c.displayOutput(c.current, c.chain);
 
-  })
+  })//= End Number Pad
+
+  // operand clicked
+  $('.operator').on('click', function () {
+    // prevent two operands being clicked next to each other
+    if (isNaN(c.lastValueEntered())) return;
+
+    c.chain = $(this).text();
+
+    c.displayOutput(c.current, c.chain);
+
+  })//= End Operator Pad
 })
