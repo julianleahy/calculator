@@ -35,7 +35,7 @@ $(function () {
 
   // instantiate new calculator object
   const c = new Calculator(),
-     sign = $('.sign');
+    sign = $('.sign');
 
   // number pad clicked
   $('.numerical').on('click', function () {
@@ -109,4 +109,12 @@ $(function () {
     }
     c.displayOutput(c.current, c.chain);
   })//= End Negative numbers
+
+  // clear all
+  $('.allClear').on('click', () => {
+    sign.removeClass('negative');
+    c._chain = [];
+    c._current = [];
+    c.displayOutput();
+  })//= End Clear all
 })
