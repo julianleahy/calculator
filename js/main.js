@@ -31,15 +31,22 @@ $(function () {
     lastValueEntered() {
       return (this._chain.length > 0) ? this._chain[this._chain.length - 1] : 0;
     }
+
+    // remove and return x number of elements from 
+    // end of chain depending on length of current value
+    sign(value) {
+      return this._chain.splice(-value).join(''); 
+    }
   } //= End Calculator Class
 
-  // instantiate new calculator object
+  // instantiate new Calculator object
   const c = new Calculator(),
     sign = $('.sign');
 
   // number pad clicked
   $('.numerical').on('click', function () {
-    // if last value in chain is an operator clear the current array ready to display next number/s
+    // if last value in chain is an operator clear the 
+    // current array ready to display next number/s
     if (isNaN(c.lastValueEntered()) && c.lastValueEntered() != '.') c._current = [];
 
     // get value of pressed button
@@ -75,7 +82,7 @@ $(function () {
     let sum = c.chain;
     // replace x with * for eval
     sum = sum.replace(/x/g, '*');
-    // eval sum and if whole number remove trailing 00's
+    // eval sum and if its a whole number remove trailing 00's
     sum = eval(sum).toFixed(2).replace(/\.00$/, '');
     // reset and replace chain with current sum
     c._chain = [];
@@ -108,7 +115,8 @@ $(function () {
       c.current = '-' + current;
     }
     c.displayOutput(c.current, c.chain);
-  })//= End Negative numbers
+
+  })//= End Negative Numbers
 
   // clear all
   $('.allClear').on('click', () => {
@@ -116,7 +124,8 @@ $(function () {
     c._chain = [];
     c._current = [];
     c.displayOutput();
-  })//= End Clear all
+
+  })//= End All Clear
 
   // clear last button pressed
   $('.clear').on('click', () => {
@@ -138,5 +147,6 @@ $(function () {
       c.current = 0;
       c.displayOutput(c.current, c.chain);
     }
-  })//=End Clear last
+
+  })//=End Clear Last
 })
