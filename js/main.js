@@ -68,4 +68,18 @@ $(function () {
     c.displayOutput(c.current, c.chain);
 
   })//= End Operator Pad
+
+  // equals clicked
+  $('.total').on('click', () => {
+    let sum = c.chain;
+    // replace x with * for eval
+    sum = sum.replace(/x/g, '*');
+    // eval sum and if whole number remove trailing 00's
+    sum = eval(sum).toFixed(2).replace(/\.00$/, '');
+    // reset and replace chain with current sum
+    c._chain = [];
+    c.chain = sum;
+    c.displayOutput(sum, sum);
+
+  })//= End Equal Button
 })
